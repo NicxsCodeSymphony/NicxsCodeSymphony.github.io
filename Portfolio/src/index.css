@@ -1,0 +1,496 @@
+:root{
+  --background: #131717;
+
+  --primary-font: Arial, Helvetica, sans-serif;
+  --text-color: #fff;
+
+  --wp--preset--font-size--normal: 16px;
+  --wp--preset--font-size--huge: 42px;
+}
+
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    touch-action: pan-x pan-y; 
+    overflow: hidden;
+    zoom: 1;
+    max-height: 100%; 
+}
+
+body{
+    font-family: var(--primary-font);
+    color: var(--text-color);
+    background: var(--background);
+    width: 100%;
+    max-width: 100%; 
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 2.5vw 0;
+    z-index: 100;
+    user-select: none;
+}
+
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo{
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    width: 186px;
+    font-size: 30px;
+}
+
+.header__nav{
+    display: flex;
+    align-items: center;
+    transition: transform .8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.header__nav__main{
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: .3s color ease;
+    margin-top: 20px;
+}
+
+/* Add this CSS to your existing CSS */
+
+.header__nav__main li {
+    position: relative;
+}
+
+.header__nav__main li::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #b4cee2; /* Change the color as needed */
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+}
+
+.header__nav__main li:hover::after {
+    width: 50%; /* Adjust the width as needed */
+}
+
+
+.js-header-item{
+    margin-right: 5.57em;
+    display: inline-block;
+    list-style: none;
+    font-weight: 600;
+}
+
+.header__demo{
+    padding: 8px 32px;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 30px;
+}
+
+.button{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding: .8em 1.78em;
+    border-radius: 130px;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    transition-duration: .3s;
+    transition-timing-function: cubic-bezier(0.7, 0, 0.2, 1);
+  transition-property: color,box-shadow;
+  white-space: nowrap;
+}
+
+.button--ghost::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #fff;
+    transition: height 0.3s ease-out;
+    z-index: -1;
+}
+
+.button--ghost:hover::before {
+    height: 100%;
+}
+
+.button--ghost:hover span{
+    color: #000;
+}
+
+
+
+.button--solid{
+    background: #b4cee2;
+  color: #2c2939;
+}
+
+
+.button--solid::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: gold;
+    transition: height 0.3s ease-out;
+    z-index: 1;
+}
+
+.button--solid:hover::before {
+    height: 100%;
+}
+
+
+.button__text{
+    font-size: 14px;
+    position: relative;
+  z-index: 1;
+}
+
+
+.section-1__container{
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    height: 100vh;
+    padding-left: 10.4vw;
+    padding-right: 5.2vw;
+}
+
+.section-1__container > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.section-1__left h1{
+    font-size: 5.83vw;
+    line-height: .97;
+    
+}
+
+.section-1__left h1 .blue{
+    color: gold;
+}
+
+.section-1__left p{
+    margin-top: 1em;
+    padding-bottom: 1em;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.section-1__left a{
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.section-1__left a span{
+    font-size: 20px;
+}
+
+.section-1__left a:nth-child(2){
+    border: 1px #fff solid;
+}
+
+
+.section-1__right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.me{
+    width: 65vh;
+    position: relative;
+    bottom: 2px;
+}
+
+a{
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+
+
+
+@media (max-width: 1400px) {
+    .button {
+      font-size: 16px;
+    }
+
+    .section-1__container{
+        width: 100%;
+    }
+
+    .button{
+        width: auto;
+    }
+  }
+
+
+
+  /* CSS for the spell-effect animation */
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.spell-effect {
+    display: inline-block;
+}
+
+.fade{
+    animation: fadeIn 10s forwards;
+}
+
+.spell-effect span {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+.spell-effect span:nth-child(1) {
+    animation-delay: 0s;
+}
+.spell-effect span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.spell-effect span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.spell-effect span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.spell-effect span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.spell-effect span:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.spell-effect span:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+.spell-effect span:nth-child(8) {
+    animation-delay: 0.7s;
+}
+
+.spell-effect span:nth-child(9) {
+    animation-delay: 0.8s;
+}
+
+.spell-effect span:nth-child(10) {
+    animation-delay: 0.9s;
+}
+
+.spell-effect span:nth-child(11) {
+    animation-delay: 1s;
+}
+
+.spell-effect span:nth-child(12) {
+    animation-delay: 1.1s;
+}
+
+.spell-effect span:nth-child(13) {
+    animation-delay: 1.2s;
+}
+
+.spell-effect span:nth-child(14) {
+    animation-delay: 1.3s;
+}
+
+.spell-effect span:nth-child(15) {
+    animation-delay: 1.4s;
+}
+
+.spell-effect span:nth-child(16) {
+    animation-delay: 1.5s;
+}
+
+.spell-effect span:nth-child(17) {
+    animation-delay: 1.6s;
+}
+
+.spell-effect span:nth-child(18) {
+    animation-delay: 1.7s;
+}
+
+.spell-effect span:nth-child(19) {
+    animation-delay: 1.8s;
+}
+
+.spell-effect span:nth-child(20) {
+    animation-delay: 1.9s;
+}
+
+.spell-effect span:nth-child(21) {
+    animation-delay: 2s;
+}
+
+.spell-effect span:nth-child(22) {
+    animation-delay: 2.1s;
+}
+.spell-effect span:nth-child(23) {
+    animation-delay: 2.2s;
+}
+.spell-effect span:nth-child(24) {
+    animation-delay: 2.3s;
+}
+
+.spell-effect span:nth-child(25) {
+    animation-delay: 2.4s;
+}
+
+.spell-effect span:nth-child(26) {
+    animation-delay: 2.5s;
+}
+
+.spell-effect span:nth-child(27) {
+    animation-delay: 2.6s;
+}
+
+.spell-effect span:nth-child(28) {
+    animation-delay: 2.7s;
+}
+
+.spell-effect span:nth-child(29) {
+    animation-delay: 2.8s;
+}
+
+.spell-effect span:nth-child(30) {
+    animation-delay: 2.9s;
+}
+
+.spell-effect span:nth-child(31) {
+    animation-delay: 3s;
+}
+
+.spell-effect span:nth-child(32) {
+    animation-delay: 3.1s;
+}
+
+
+
+
+/* CSS for the spell-effect animation and other styles */
+
+/* ... [Previous CSS code] ... */
+
+/* Media queries for responsiveness */
+
+/* Adjustments for smaller screens */
+@media (min-width: 1144px) {
+    .me{
+        width: 90%;
+        height: auto;
+    }
+
+    .section-1__container{
+        width: 100%;
+    }   
+}
+
+@media (max-width: 1400px) {
+    .js-header-item{
+        margin-right: 3em;
+    }
+
+    section-1__left p{
+        font-size: 10px;
+    }
+}
+
+
+@media (max-width: 1143px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .js-header-item{
+        margin-right: 2em;
+    }
+
+    .header__nav {
+        margin-top: 10px;
+    }
+
+    .js-header-item {
+        margin: 0;
+        margin-bottom: 10px;
+        margin-right: 0; /* Remove right margin */
+    }
+
+    .section-1__container {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    .section-1__left h1 {
+        font-size: 30px;
+    }
+
+    .section-1__left p {
+        font-size: 14px;
+    }
+
+    .section-1__right {
+        display: none;
+    }
+
+    .me {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Adjustments for even smaller screens */
+@media (max-width: 576px) {
+    .header__logo {
+        font-size: 24px;
+    }
+
+    .section-1__container {
+        padding: 0 10px;
+    }
+
+    .section-1__left h1 {
+        font-size: 24px;
+    }
+
+    .section-1__left p {
+        font-size: 14px;
+    }
+}
+
+/* ... [Additional media queries if needed] ... */
+
+/* End of CSS */
